@@ -22,9 +22,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-
-            </div>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar"></div>
         </nav>
     </header>
 
@@ -115,6 +113,45 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('form').addEventListener('submit', function(e) {
+
+                var email = document.querySelector('[name="Email"]').value;
+                if (!isValidEmail(email)) {
+                    e.preventDefault();
+                    alert('Invalid email address');
+                    return;
+                }
+
+                var phoneNumber = document.querySelector('[name="PhoneNumber"]').value;
+                if (!isValidPhoneNumber(phoneNumber)) {
+                    e.preventDefault();
+                    alert('Invalid phone number');
+                    return;
+                }
+
+                var password = document.querySelector('[name="Password"]').value;
+                var confirmPassword = document.querySelector('[name="ConfirmPassword"]').value;
+                if (password.length < 4 || password !== confirmPassword) {
+                    e.preventDefault();
+                    alert('Password must be at least 4 characters long and match the confirmation');
+                    return;
+                }
+
+            });
+
+            function isValidEmail(email) {
+                return email.includes('@');
+            }
+
+            function isValidPhoneNumber(phoneNumber) {
+                const regex = /^(?:\+94|0)(7[1-9])\d{7}$/;
+                return regex.test(phoneNumber);
+            }
+
+        });
+    </script>
 </body>
 
 </html>

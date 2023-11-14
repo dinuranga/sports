@@ -90,7 +90,7 @@
                 </div>
                 <div class="form-group">
                     <label for="RegistrationNo">Registration Number:</label>
-                    <input type="number" class="form-control" name="RegistrationNo" required>
+                    <input type="text" class="form-control" name="RegistrationNo" required>
                 </div>
                 <div class="form-group">
                     <label for="Sports">Select Sports (Hold Ctrl to select multiple sports):</label>
@@ -112,6 +112,53 @@
         </div>
 
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('form').addEventListener('submit', function(e) {
+                var email = document.querySelector('[name="Email"]').value;
+                if (!isValidEmail(email)) {
+                    e.preventDefault();
+                    alert('Invalid email address', 'danger');
+                    return;
+                }
+
+                var emergencyContactNumber = document.querySelector('[name="EmergencyContactNumber"]').value;
+                if (!isValidEmergencyPhoneNumber(emergencyContactNumber)) {
+                    e.preventDefault();
+                    alert('Invalid emergency phone number', 'danger');
+                    return;
+                }
+
+                var phoneNumber = document.querySelector('[name="PhoneNumber"]').value;
+                if (!isValidPhoneNumber(phoneNumber)) {
+                    e.preventDefault();
+                    alert('Invalid phone number', 'danger');
+                    return;
+                }
+
+                var password = document.querySelector('[name="Password"]').value;
+                if (password.length < 4) {
+                    e.preventDefault();
+                    alert('Password must be at least 4 characters long', 'danger');
+                    return;
+                }
+            });
+
+            function isValidEmail(email) {
+                return email.includes('@');
+            }
+
+            function isValidPhoneNumber(phoneNumber) {
+                const regex = /^(?:\+94|0)(7[1-9])\d{7}$/;
+                return regex.test(phoneNumber);
+            }
+
+            function isValidEmergencyPhoneNumber(phoneNumber) {
+                const regex = /^(?:\+94|0)(7[1-9])\d{7}$/;
+                return regex.test(phoneNumber);
+            }
+        });
+    </script>
 </body>
 
 </html>

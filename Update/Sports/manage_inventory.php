@@ -237,15 +237,22 @@ if (!isset($_SESSION['user_id'])) {
                     <div class="form-group">
                         <label for="searchKeyword">Search by Equipment Name:</label>
                         <select class="form-control" name="searchKeyword" required>
-                            <option value="Cricket Balls">Cricket Balls</option>
-                            <option value="Knee Guards">Knee Guards</option>
-                            <option value="Gloves">Gloves</option>
-                            <!-- Add more options for other equipment -->
+                            <?php
+                            $sql = "SELECT DISTINCT equipmentName FROM inventory";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '<option value="' . $row["equipmentName"] . '">' . $row["equipmentName"] . '</option>';
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary" name="searchEquipment">Search</button>
                 </form>
             </div>
+
 
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {

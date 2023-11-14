@@ -3,7 +3,6 @@ session_start(); // Start the session to store user information
 
 $loggedIn = !(isset($_SESSION['user_id']));
 
-
 // Check if the user is already logged in
 if (isset($_SESSION['user_id'])) {
     if ($_SESSION['user_type'] == "admin") {
@@ -14,9 +13,7 @@ if (isset($_SESSION['user_id'])) {
         exit();
     }
 }
-
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -71,9 +68,9 @@ if (isset($_SESSION['user_id'])) {
         $registrationType = $_POST['registrationType'];
 
         if ($registrationType === "player") {
-            header('location:player_registration.php');
+            echo "<script>location.href = 'player_registration.php';</script>";
         } elseif ($registrationType === "coach") {
-            header('location: coach_registration.php');
+            echo "<script>location.href = 'coach_registration.php';</script>";
         } else {
             echo "Invalid choice.";
         }

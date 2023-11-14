@@ -13,11 +13,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Matches</title>
     <style>
-        body{
+        body {
             background-color: #fafafa;
         }
+
         .container {
-            padding:0;
+            padding: 0;
         }
     </style>
 </head>

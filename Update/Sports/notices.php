@@ -22,23 +22,26 @@
         .notice-card:hover {
             transform: scale(1.03);
         }
-        .card-header{
+
+        .card-header {
             background-color: red;
         }
 
         .card-title {
             color: #fff;
         }
-        .card-body{
+
+        .card-body {
             color: #fff;
             background-color: #444;
         }
-        .container-fluid{
+
+        .container-fluid {
             background-color: #fafafa;
             padding-bottom: 20px;
             padding-top: 20px;
             position: absolute;
-            top:75px;
+            top: 75px;
             bottom: 0;
             z-index: -99;
         }
@@ -61,11 +64,11 @@
     </header>
     <div class="container-fluid">
         <div class="container">
-            <h2 >Notices</h2>
+            <h2>Notices</h2>
 
-            <!-- Display Notices with Animation -->
+
             <?php
-            // Include your database connection configuration
+
             include 'db_config.php';
 
             $noticesQuery = "SELECT newsTitle, newsBody FROM news";

@@ -26,7 +26,7 @@ $isCoach = ($loggedIn && $_SESSION['user_type'] == "coach");
             <a class="navbar-brand" href="index.php">
                 <div class="logo"></div>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <button class=" navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
